@@ -26,10 +26,23 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v2.0.2
+        with:
+          envkey_NODE_ENV: "production"
+          envkey_TZ: "America/São Paulo"
+          envkey_PORT: 3000
+          envkey_DB_TYPE: "mysql"
+          envkey_DB_HOST: ${{ vars.RDS_HOST }}
+          envkey_DB_PORT: 3306
+          envkey_DB_USERNAME: ${{ secrets.RDS_USER }}
+          envkey_DB_PASSWORD: ${{ secrets.RDS_PASSWORD }}
+          envkey_DB_DATABASE: ${{ vars.RDS_DATABASE }}
+          envkey_MP_ACCESS_TOKEN: ${{ secrets.MP_ACCESS_TOKEN }}
+
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
