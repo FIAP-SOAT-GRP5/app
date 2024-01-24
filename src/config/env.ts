@@ -20,6 +20,7 @@ const envSchema = z.object({
 	JWT_KEY: z.string(),
 
 	QUEUE_CREATE_ORDER_URL: z.string(),
+	QUEUE_UPDATE_ORDER_URL: z.string(),
 });
 
 const envTestSchema = z.object({
@@ -37,6 +38,7 @@ const envTestSchema = z.object({
 	JWT_KEY: z.string().default('test'),
 
 	QUEUE_CREATE_ORDER_URL: z.string().optional(),
+	QUEUE_UPDATE_ORDER_URL: z.string().optional(),
 });
 
 const getEnv = () => {

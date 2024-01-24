@@ -20,11 +20,19 @@ export class InMemoryOrderRepository implements IOrderRepository {
 		return findBiggestId() + 1;
 	}
 
+	async update(id: number, order: Partial<Order>): Promise<void> {
+		const orderToUpdate = await this.findById(id);
+		if (!orderToUpdate) return;
+		orderToUpdate.status = order.status;
+		orderToUpdate.client_id = order.client_id;
+		orderToUpdate.orderItems = order.orderItems;
+	}
+
 	async create(orderToCreate: OrderToCreateDto): Promise<Order> {
 		const order = new Order();
 		order.id = this.generateId();
 		order.status = orderToCreate.status;
-		order.client_id = orderToCreate.client.id;
+		order.client_id = orderToCreate.client_id;
 		order.orderItems = orderToCreate.orderItems.map(oi => {
 			const orderItem = new OrderItem();
 			orderItem.price = oi.price;

@@ -7,7 +7,7 @@ import { IQueueGateway } from '../../../domain/application/interfaces/queue/queu
 import { Order } from '../../../domain/enterprise/entities/order.entity';
 
 @Injectable()
-export class QueueGateway implements IQueueGateway {
+export class CreateOrderQueueGateway implements IQueueGateway {
 
 	async send(entity: Order): Promise<void> {
 		const command = new SendMessageCommand({

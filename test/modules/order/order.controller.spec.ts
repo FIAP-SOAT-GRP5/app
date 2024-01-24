@@ -14,10 +14,10 @@ import { GET_ITEM_USE_CASE } from '../../../src/domain/application/symbols/item.
 import { CREATE_ORDER_USE_CASE, GET_ORDER_USE_CASE } from '../../../src/domain/application/symbols/order.symbols';
 import { AuthModule } from '../../../src/framework/modules/auth/auth.module';
 import { ItemRepository } from '../../../src/framework/modules/item/item.repository';
+import { CreateOrderQueueGateway } from '../../../src/framework/modules/order/create-order-queue.gateway';
 import { CreateOrderBodyDto } from '../../../src/framework/modules/order/dtos/create-order.dto';
 import { OrderController } from '../../../src/framework/modules/order/order.controller';
 import { OrderRepository } from '../../../src/framework/modules/order/order.repository';
-import { QueueGateway } from '../../../src/framework/modules/order/queue.gateway';
 import { makeItem } from '../../factories/makeItem';
 import { makeOrderToCreate } from '../../factories/makeOrder';
 import { InMemoryItemRepository } from '../../repositories/in-memory-item.repository';
@@ -55,7 +55,7 @@ describe('OrderController', () => {
 					useValue: inMemoryOrderRepository,
 				},
 				{
-					provide: QueueGateway,
+					provide: CreateOrderQueueGateway,
 					useValue: queueGateway,
 				},
 				{
@@ -70,7 +70,7 @@ describe('OrderController', () => {
 				},
 				{
 					provide: CREATE_ORDER_USE_CASE,
-					inject: [OrderRepository, GET_ITEM_USE_CASE, QueueGateway],
+					inject: [OrderRepository, GET_ITEM_USE_CASE, CreateOrderQueueGateway],
 					useFactory: buildCreateOrderUseCase,
 				},
 			]

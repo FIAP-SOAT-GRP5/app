@@ -15,6 +15,10 @@ export class OrderRepository implements IOrderRepository {
 		private readonly orderRepository: Repository<OrderEntity>
 	) {}
 
+	async update(id: number, order: Partial<Order>): Promise<void> {
+		await this.orderRepository.update(id, order);
+	}
+
 	async create(orderToCreate: OrderToCreateDto): Promise<Order> {
 		return this.orderRepository.save(orderToCreate).then((order) => {
 			return this.findById(order.id);
@@ -28,7 +32,6 @@ export class OrderRepository implements IOrderRepository {
 			},
 			relations: [
 				'orderItems',
-				'client',
 				'orderItems.item',
 				'orderItems.item.category',
 			],
@@ -48,7 +51,6 @@ export class OrderRepository implements IOrderRepository {
 			},
 			relations: [
 				'orderItems',
-				'client',
 				'orderItems.item',
 				'orderItems.item.category',
 			],
