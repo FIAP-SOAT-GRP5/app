@@ -1,3 +1,4 @@
+/* v8 ignore start */
 module.exports = {
 	default: [
 		"--require-module ts-node/register",
@@ -5,3 +6,4 @@ module.exports = {
 		"test/features/**/*.feature"
 	].join(" "),
 };
+/* v8 ignore stop */
