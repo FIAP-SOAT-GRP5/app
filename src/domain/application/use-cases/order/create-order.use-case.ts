@@ -29,9 +29,7 @@ export class CreateOrderUseCase implements ICreateOrderUseCase {
 		if (items.length === 0) throw new OrderWithoutItemsError();
 
 		const order = await this.repository.create({
-			client: {
-				id: dto.clientId
-			},
+			client_id: dto.clientId,
 			status: OrderStatus.AWAITING_PAYMENT,
 			orderItems: items.map((item) => ({
 				item: {

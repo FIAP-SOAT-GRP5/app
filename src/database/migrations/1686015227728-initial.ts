@@ -91,10 +91,6 @@ export class Initial1686015227728 implements MigrationInterface {
 						type: 'varchar',
 						isNullable: false,
 					}, {
-						name: 'status_payment',
-						type: 'varchar',
-						isNullable: false,
-					}, {
 						name: 'finished_at',
 						type: 'timestamp',
 						isNullable: true,
