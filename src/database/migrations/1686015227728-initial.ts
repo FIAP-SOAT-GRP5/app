@@ -20,7 +20,8 @@ export class Initial1686015227728 implements MigrationInterface {
 						isNullable: true,
 					},
 				],
-			})
+			}),
+			true,
 		);
 		await queryRunner.manager.insert('category', [
 			{
@@ -73,7 +74,8 @@ export class Initial1686015227728 implements MigrationInterface {
 						onDelete: 'CASCADE',
 					},
 				],
-			})
+			}),
+			true,
 		);
 
 		await queryRunner.createTable(
@@ -102,7 +104,8 @@ export class Initial1686015227728 implements MigrationInterface {
 						default: 'now()',
 					}
 				],
-			})
+			}),
+			true,
 		);
 
 		await queryRunner.createTable(
@@ -149,7 +152,8 @@ export class Initial1686015227728 implements MigrationInterface {
 						onDelete: 'CASCADE',
 					},
 				],
-			})
+			}),
+			true,
 		);
 	}
 
