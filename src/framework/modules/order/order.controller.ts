@@ -69,7 +69,7 @@ export class OrderController {
 		try {
 			const order = await this.createOrderUseCase.create({
 				...body,
-				clientId: +currentUser.id,
+				clientId: currentUser.id,
 			});
 			res.status(201).send({ order });
 		} catch (error) {

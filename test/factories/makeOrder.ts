@@ -2,7 +2,7 @@ import { OrderToCreateDto } from "../../src/domain/enterprise/dtos/order-to-crea
 
 export function makeOrderToCreate() {
 	const order = new OrderToCreateDto()
-	order.client_id = 1
+	order.client_id = 'any_client_id'
 	order.orderItems = []
 	return order
 }

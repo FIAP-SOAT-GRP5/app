@@ -7,7 +7,7 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Debug API",
+			"name": "Debug MS Order",
 			"cwd": "${workspaceFolder}",
 			"runtimeExecutable": "npm",
 			"runtimeArgs": [
