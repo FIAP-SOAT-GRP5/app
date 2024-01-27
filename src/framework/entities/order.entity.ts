@@ -32,7 +32,7 @@ export class OrderEntity implements IEntity {
 
 	@Column()
 	@ApiProperty()
-	client_id: number;
+	client_id: string;
 
 	@OneToMany(() => OrderItemEntity, (item) => item.order, {
 		cascade: true,

@@ -8,7 +8,7 @@ export class Order implements IEntity {
 	finishedAt: Date;
 	createdAt: Date;
 	updatedAt: Date;
-	client_id: number;
+	client_id: string;
 	orderItems?: OrderItem[];
 
 	getId(): number {

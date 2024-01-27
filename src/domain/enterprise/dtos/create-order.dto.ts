@@ -6,5 +6,5 @@ class ItemDto {
 
 export class CreateOrderDto {
 	itemsIds: ItemDto[];
-	clientId: number;
+	clientId: string;
 }

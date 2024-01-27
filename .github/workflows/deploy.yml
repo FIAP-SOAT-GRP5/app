@@ -46,7 +46,9 @@ jobs:
       envkey_JWT_KEY: ${{ secrets.JWT_SECRET }}
       envkey_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       envkey_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      envkey_AWS_REGION: ${{ vars.AWS_REGION }}
       envkey_QUEUE_CREATE_ORDER_URL: ${{ vars.QUEUE_CREATE_ORDER_URL }}
+      envkey_QUEUE_UPDATE_ORDER_URL: ${{ vars.QUEUE_UPDATE_ORDER_URL }}
 
    - name: Build, tag, and push image to Amazon ECR
      id: build-image

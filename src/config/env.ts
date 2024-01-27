@@ -21,6 +21,7 @@ const envSchema = z.object({
 
 	QUEUE_CREATE_ORDER_URL: z.string(),
 	QUEUE_UPDATE_ORDER_URL: z.string(),
+	AWS_REGION: z.string(),
 });
 
 const envTestSchema = z.object({
@@ -39,6 +40,7 @@ const envTestSchema = z.object({
 
 	QUEUE_CREATE_ORDER_URL: z.string().optional(),
 	QUEUE_UPDATE_ORDER_URL: z.string().optional(),
+	AWS_REGION: z.string().optional(),
 });
 
 const getEnv = () => {
