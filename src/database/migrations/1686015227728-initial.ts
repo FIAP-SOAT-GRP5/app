@@ -85,7 +85,7 @@ export class Initial1686015227728 implements MigrationInterface {
 					getIntId(),
 					{
 						name: 'client_id',
-						type: 'character varying',
+						type: 'varchar',
 					}, {
 						name: 'status',
 						type: 'varchar',
