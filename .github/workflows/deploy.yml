@@ -37,7 +37,7 @@ jobs:
       envkey_NODE_ENV: 'production'
       envkey_TZ: 'America/São Paulo'
       envkey_PORT: 3000
-      envkey_DB_TYPE: 'mysql'
+      envkey_DB_TYPE: 'postgres'
       envkey_DB_HOST: ${{ vars.RDS_HOST }}
       envkey_DB_PORT: 3306
       envkey_DB_USERNAME: ${{ secrets.RDS_USER }}
