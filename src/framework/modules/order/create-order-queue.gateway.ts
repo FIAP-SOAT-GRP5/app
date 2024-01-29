@@ -10,11 +10,14 @@ import { Order } from '../../../domain/enterprise/entities/order.entity';
 export class CreateOrderQueueGateway implements IQueueGateway {
 
 	async send(entity: Order): Promise<void> {
-		const command = new SendMessageCommand({
-			QueueUrl: env.QUEUE_CREATE_ORDER_URL ?? '',
+		await clientSQS.send(new SendMessageCommand({
+			QueueUrl: `${env.QUEUE_CREATE_ORDER_URL ?? ''}_payment`,
 			MessageBody: JSON.stringify(entity),
-		});
-		await clientSQS.send(command)
+		}))
+		await clientSQS.send(new SendMessageCommand({
+			QueueUrl: `${env.QUEUE_CREATE_ORDER_URL ?? ''}_production`,
+			MessageBody: JSON.stringify(entity),
+		}))
 	}
 
 }
