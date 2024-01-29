@@ -124,7 +124,7 @@ Exemplo de dados para atualizar um produto:
 
 ##### - Por menssageria
 
-O cadastro do pedido por meio de mensageria, utilizando o microserviço de produção (production), deve ser feito pela fila `create_order`.
+O registro de pedidos por meio de mensageria deve ser realizado pelo microserviço de produção (production), utilizando a fila `create_order_production`. Para o microserviço de pagamento, o cadastro deve ser efetuado por meio da fila `create_order_payment`.
 
 Cada pedido deve conter os seguintes campos:
 
