@@ -15,6 +15,8 @@ import { ItemModule } from '../item/item.module';
 import { CreateOrderQueueGateway } from './create-order-queue.gateway';
 import { OrderController } from './order.controller';
 import { OrderRepository } from './order.repository';
+import { PaymentApprovedQueueGateway } from './payment-approved-queue.gateway';
+import { PaymentCanceledQueueGateway } from './payment-canceled-queue.gateway';
 import { UpdateOrderQueueGateway } from './update-order-queue.gateway';
 
 @Module({
@@ -26,6 +28,8 @@ import { UpdateOrderQueueGateway } from './update-order-queue.gateway';
 		OrderRepository,
 		CreateOrderQueueGateway,
 		UpdateOrderQueueGateway,
+		PaymentApprovedQueueGateway,
+		PaymentCanceledQueueGateway,
 		{
 			provide: CREATE_ORDER_USE_CASE,
 			inject: [OrderRepository, GET_ITEM_USE_CASE, CreateOrderQueueGateway],

@@ -21,6 +21,8 @@ const envSchema = z.object({
 
 	QUEUE_CREATE_ORDER_URL: z.string(),
 	QUEUE_UPDATE_ORDER_URL: z.string(),
+	QUEUE_PAYMENT_APPROVED_URL: z.string(),
+	QUEUE_PAYMENT_CANCELED_URL: z.string(),
 	AWS_REGION: z.string(),
 });
 
@@ -40,6 +42,8 @@ const envTestSchema = z.object({
 
 	QUEUE_CREATE_ORDER_URL: z.string().optional(),
 	QUEUE_UPDATE_ORDER_URL: z.string().optional(),
+	QUEUE_PAYMENT_APPROVED_URL: z.string().optional(),
+	QUEUE_PAYMENT_CANCELED_URL: z.string().optional(),
 	AWS_REGION: z.string().optional(),
 });
 

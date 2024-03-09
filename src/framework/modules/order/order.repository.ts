@@ -47,6 +47,7 @@ export class OrderRepository implements IOrderRepository {
 					OrderStatus.PROCESSING,
 					OrderStatus.READY,
 					OrderStatus.RECEIVED,
+					OrderStatus.CANCELED,
 				]),
 			},
 			relations: [
