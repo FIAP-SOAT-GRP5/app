@@ -49,6 +49,8 @@ jobs:
       envkey_AWS_REGION: ${{ vars.AWS_REGION }}
       envkey_QUEUE_CREATE_ORDER_URL: ${{ vars.QUEUE_CREATE_ORDER_URL }}
       envkey_QUEUE_UPDATE_ORDER_URL: ${{ vars.QUEUE_UPDATE_ORDER_URL }}
+      envkey_QUEUE_PAYMENT_APPROVED_URL: ${{ vars.QUEUE_PAYMENT_APPROVED_URL }}
+      envkey_QUEUE_PAYMENT_CANCELED_URL: ${{ vars.QUEUE_PAYMENT_CANCELED_URL }}
 
    - name: Build, tag, and push image to Amazon ECR
      id: build-image
